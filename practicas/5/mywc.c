@@ -7,14 +7,17 @@ int main() {
     unsigned caracteres = 0;
     unsigned palabras = 0;
     unsigned lineas = 0;
-    unsigned bandera = 0;
+    unsigned bandera = 1;
 
     while(read(STDIN_FILENO,&c,1) != 0) {
-		if(c == '\n') {
+		if(c == '\n' && bandera == 0) {
             caracteres++;
             palabras++;
             lineas++;
             bandera = 0;
+        } else if(c == '\n' && bandera == 1) {
+            caracteres++;
+            lineas++;
         } else if(c != ' ') {
             caracteres++;
             bandera = 0;
@@ -28,8 +31,8 @@ int main() {
             }
         }
     }
-    printf("Numero de caracteres: %u\n", caracteres);
-    printf("Numero de palabras: %u\n", palabras);
     printf("Numero de lineas: %u\n", lineas);
+    printf("Numero de palabras: %u\n", palabras);
+    printf("Numero de caracteres: %u\n", caracteres);
     return 0;
 }
