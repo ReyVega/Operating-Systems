@@ -14,7 +14,6 @@ int main() {
             caracteres++;
             palabras++;
             lineas++;
-            bandera = 0;
         } else if(c == '\n' && bandera == 1) {
             caracteres++;
             lineas++;
